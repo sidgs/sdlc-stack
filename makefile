@@ -1,4 +1,4 @@
-COMPOSE := docker compose -f sdlc-stacks.yaml
+COMPOSE := env -u DOCKER_DEFAULT_PLATFORM docker compose -f sdlc-stacks.yaml
 
 .DEFAULT_GOAL := usage
 
@@ -7,7 +7,7 @@ COMPOSE := docker compose -f sdlc-stacks.yaml
 usage:
 	@echo "Usage: make <target>"
 	@echo ""
-	@echo "  start    Start redis, pgvector, mailpit, and litellm"
+	@echo "  start    Start redis, pgvector, mailpit, litellm, s3, and gcs"
 	@echo "  stop     Stop the stack"
 	@echo "  restart  Restart the stack"
 	@echo "  usage    Show this help"

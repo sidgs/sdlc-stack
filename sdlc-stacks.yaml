@@ -25,18 +25,20 @@ services:
       - "8025:8025"
 
   litellm:
-    image: ghcr.io/berriai/litellm:main-stable
+    image: ghcr.io/berriai/litellm:v1.87.0
+    platform: linux/amd64
     container_name: litellm
     ports:
       - "4000:4000"
     environment:
-      DATABASE_URL: postgresql://dev:dev@pgvector:5432/dev
-      STORE_MODEL_IN_DB: "True"
+      # DATABASE_URL: postgresql://dev:dev@pgvector:5432/dev
+      STORE_MODEL_IN_DB: "False"
       LITELLM_MASTER_KEY: sk-1234
       LITELLM_SALT_KEY: sk-1234
       OPENAI_API_KEY: ${OPENAI_API_KEY:-}
       GEMINI_API_KEY: ${GEMINI_API_KEY:-}
       ANTHROPIC_API_KEY: ${ANTHROPIC_API_KEY:-}
+      LITELLM_DANGEROUSLY_PERMIT_WEAK_OR_UNSET_MASTER_KEY: true
     volumes:
       - ./litellm_config.yaml:/app/config.yaml
     command:

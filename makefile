@@ -13,6 +13,11 @@ usage:
 	@echo "  usage    Show this help"
 
 start:
+	@echo "Starting stack..."
+	@echo "DOCKER_DEFAULT_PLATFORM: $(DOCKER_DEFAULT_PLATFORM)"
+	@echo "GEMINI_API_KEY: $(GEMINI_API_KEY)"
+	@echo "OPENAI_API_KEY: $(OPENAI_API_KEY)"
+	@echo "ANTHROPIC_API_KEY: $(ANTHROPIC_API_KEY)"
 	$(COMPOSE) up -d
 
 stop:

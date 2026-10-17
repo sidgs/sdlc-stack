@@ -54,8 +54,8 @@ model_list:
 
 general_settings:
   master_key: os.environ/LITELLM_MASTER_KEY
-  database_url: os.environ/DATABASE_URL
-  store_model_in_db: true
+  # database_url: os.environ/DATABASE_URL
+  store_model_in_db: os.environ/LITELLM_STORE_MODEL_IN_DB
 
 router_settings:
   redis_host: redis

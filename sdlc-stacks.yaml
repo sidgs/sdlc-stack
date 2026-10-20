@@ -33,17 +33,21 @@ services:
     volumes:
       - ./data/verdaccio_data:/verdaccio/storage
 
-  kong-dbless:
+  kong:
     image: kong:latest
-    container_name: kong-dbless
+    platform: linux/amd64
+    container_name: kong
     ports:
       - "8000:8000"
       - "8001:8001"
+      - "8002:8002"
     environment:
       KONG_DATABASE: "off"
       KONG_DECLARATIVE_CONFIG: /etc/kong/kong.yaml
       KONG_PROXY_LISTEN: "0.0.0.0:8000"
       KONG_ADMIN_LISTEN: "0.0.0.0:8001"
+      KONG_ADMIN_GUI_LISTEN: "0.0.0.0:8002"
+      KONG_ADMIN_GUI_URL: "http://localhost:8002"
     volumes:
       - ~/.sdlc-stacks/data/kong-apim/kong.yaml:/etc/kong/kong.yaml:ro
 

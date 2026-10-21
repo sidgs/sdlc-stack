@@ -25,13 +25,13 @@ services:
       - "1025:1025"
       - "8025:8025"
 
-  verdaccio:
+  npm-registry:
     image: verdaccio/verdaccio
     container_name: verdaccio
     ports:
       - "4873:4873"
     volumes:
-      - ./data/verdaccio_data:/verdaccio/storage
+      - ./data/npm-registry_data:/verdaccio/storage
 
   kong:
     image: kong:latest

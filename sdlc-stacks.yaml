@@ -86,7 +86,11 @@ services:
     depends_on:
       - pgvector
       - redis
-
+  markitdown:
+    image: sidgs.jfrog.io/sami/ats-markitdown:0.2.0
+    platform: linux/amd64
+    ports:
+      - "8091:8091"
   # s3:
     # image: minio/minio:latest
     # container_name: s3

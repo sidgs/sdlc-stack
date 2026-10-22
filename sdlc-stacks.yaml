@@ -16,6 +16,18 @@ services:
       POSTGRES_DB: dev
     volumes:
       - ./data/pgvector_data:/var/lib/postgresql/data
+  
+  saps-db:
+    image: pgvector/pgvector:pg16
+    container_name: saps-db
+    ports:
+      - "5433:5432"
+    environment:
+      POSTGRES_USER: dev
+      POSTGRES_PASSWORD: dev
+      POSTGRES_DB: dev
+    volumes:
+      - ./data/saps-db_data:/var/lib/postgresql/data
 
   mailpit:
     image: axllent/mailpit:latest

@@ -95,6 +95,7 @@ services:
   sami-mem0:
     image: sidgs.jfrog.io/sami/sami-agent-memory:0.1.0
     container_name: sami-mem0
+    platform: linux/amd64
     extra_hosts:
       - "host.docker.internal:host-gateway"
     ports:

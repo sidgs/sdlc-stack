@@ -93,7 +93,7 @@ services:
       - "8091:8091"
 
   sami-mem0:
-    image: sidgs.jfrog.io/sami/sami-agent-memory:1.0.0
+    image: sidgs.jfrog.io/sami/agent-memzero-memory:1.0.0
     container_name: sami-mem0
     platform: linux/amd64
     extra_hosts:

@@ -105,16 +105,16 @@ services:
         required: false
     environment:
       # LiteLLM proxy on the host. The process appends /v1. Model names are proxy aliases.
-      LITELLM_API_BASE: ${LITELLM_API_BASE:-http://litellm:4000}
+      LITELLM_API_BASE: ${LITELLM_API_BASE:-http://host.docker.internal:4000}
       LITELLM_API_KEY: ${LITELLM_API_KEY:-sk-1234}
       LITELLM_DEFAULT_MODEL: ${LITELLM_DEFAULT_MODEL:-default}
-      LITELLM_EMBED_MODEL: ${LITELLM_EMBED_MODEL:-embedding-1536}
+      LITELLM_EMBED_MODEL: ${LITELLM_EMBED_MODEL:-embeddings-1536}
       MEM0_EMBED_DIMS: ${MEM0_EMBED_DIMS:-1536}
       # Chroma only. Uncomment with the volume below, and set MODE=LOCAL.
       # MODE: LOCAL
       # MEM0_CHROMA_PATH: /app/chroma
       MEM0_PG_CONNECTION_STRING: ${MEM0_PG_CONNECTION_STRING:-}
-      MEM0_PG_HOST: pgvector
+      MEM0_PG_HOST: host.docker.internal
       MEM0_PG_PORT: "5432"
       MEM0_PG_DB: ${MEM0_PG_DB:-mem0}
       MEM0_PG_USER: dev
